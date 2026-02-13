@@ -47,14 +47,62 @@ export default function EditablePage({ title, storageKey, defaultContent }: Edit
     }
   };
 
+  // Format content for better e-reader display
+  const formatContent = (text: string) => {
+    return text
+      .split('\n')
+      .map((line, i) => {
+        // Headers
+        if (line.startsWith('### ')) {
+          return <h3 key={i} className="text-2xl font-bold mt-8 mb-4 text-orange-300">{line.replace('### ', '')}</h3>;
+        }
+        if (line.startsWith('## ')) {
+          return <h2 key={i} className="text-3xl font-bold mt-10 mb-6 text-orange-400">{line.replace('## ', '')}</h2>;
+        }
+        if (line.startsWith('# ')) {
+          return <h1 key={i} className="text-4xl font-bold mt-12 mb-8 text-orange-500">{line.replace('# ', '')}</h1>;
+        }
+        
+        // Horizontal rules
+        if (line.trim() === '---') {
+          return <hr key={i} className="my-8 border-white/20" />;
+        }
+        
+        // Bullet points
+        if (line.startsWith('- ')) {
+          return <li key={i} className="ml-6 mb-2 leading-relaxed">{line.replace('- ', '')}</li>;
+        }
+        
+        // Bold text (convert **text** to bold)
+        if (line.includes('**')) {
+          const parts = line.split('**');
+          return (
+            <p key={i} className="mb-4 leading-relaxed">
+              {parts.map((part, j) => 
+                j % 2 === 1 ? <strong key={j} className="text-orange-300 font-semibold">{part}</strong> : part
+              )}
+            </p>
+          );
+        }
+        
+        // Empty lines
+        if (line.trim() === '') {
+          return <div key={i} className="h-4" />;
+        }
+        
+        // Regular paragraphs
+        return <p key={i} className="mb-4 leading-relaxed">{line}</p>;
+      });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
-      <div className="container mx-auto px-4 py-6 max-w-4xl">
+      <div className="container mx-auto px-4 py-6 max-w-3xl">
         {/* Header */}
         <div className="mb-6 flex items-center justify-between gap-4">
           <Link 
             href="/" 
-            className="text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-2"
+            className="text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-2 text-lg"
           >
             ← Back
           </Link>
@@ -92,18 +140,15 @@ export default function EditablePage({ title, storageKey, defaultContent }: Edit
         )}
 
         {/* Title */}
-        <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-pink-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-orange-400 to-pink-600 bg-clip-text text-transparent">
           {title}
         </h1>
 
         {/* Content Area */}
         {!isEditing ? (
-          <div className="prose prose-invert prose-lg max-w-none">
-            <div 
-              className="p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 whitespace-pre-wrap"
-              style={{ fontFamily: 'inherit' }}
-            >
-              {content}
+          <div className="text-lg leading-relaxed">
+            <div className="p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
+              {formatContent(content)}
             </div>
           </div>
         ) : (
@@ -111,7 +156,7 @@ export default function EditablePage({ title, storageKey, defaultContent }: Edit
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="w-full min-h-[70vh] p-6 bg-white/10 backdrop-blur-lg rounded-xl border-2 border-orange-500/50 text-white font-mono text-sm focus:outline-none focus:border-orange-500 resize-y"
+              className="w-full min-h-[70vh] p-6 bg-white/10 backdrop-blur-lg rounded-xl border-2 border-orange-500/50 text-white text-base leading-relaxed focus:outline-none focus:border-orange-500 resize-y"
               placeholder="Edit your content here..."
               autoFocus
             />

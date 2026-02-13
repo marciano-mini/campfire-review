@@ -1,7 +1,9 @@
 import EditablePage from '../components/EditablePage';
 
 const defaultContent = `# Campfire (campfire.gg) - Deep Research Report
+
 **Research Date:** February 13, 2026
+
 **Researcher:** Subagent for Marciano Planque
 
 ---
@@ -25,13 +27,20 @@ Campfire is a lightweight, real-time hangout space where you can watch YouTube v
 
 ### Core Features
 
-| Feature | Description |
-|---------|-------------|
-| 🎥 Synchronized YouTube Watching | All participants see the same video at the same time |
-| 🚪 24/7 Rooms | Rooms are always open, join anytime |
-| 🌐 Browser-based | No downloads, no accounts required to join |
-| 🧘 Minimal UI | Just enough to keep things moving, never in the way |
-| 🔒 Privacy-first | Designed with privacy as a core principle |
+**🎥 Synchronized YouTube Watching**
+All participants see the same video at the same time
+
+**🚪 24/7 Rooms**
+Rooms are always open, join anytime
+
+**🌐 Browser-based**
+No downloads, no accounts required to join
+
+**🧘 Minimal UI**
+Just enough to keep things moving, never in the way
+
+**🔒 Privacy-first**
+Designed with privacy as a core principle
 
 ### User Flow
 
@@ -97,6 +106,7 @@ Campfire is a lightweight, real-time hangout space where you can watch YouTube v
 ## Top 5 Improvement Recommendations
 
 ### 1. Curated Daily Parties (Highest Priority)
+
 **Why:** Current discovery is empty. Users need a reason to return daily.
 
 **Implementation:**
@@ -111,6 +121,7 @@ Campfire is a lightweight, real-time hangout space where you can watch YouTube v
 - Word-of-mouth growth (invite friends to cool parties)
 
 ### 2. Room Host Program
+
 **Why:** Community-driven growth is sustainable and authentic.
 
 **Implementation:**
@@ -126,6 +137,7 @@ Campfire is a lightweight, real-time hangout space where you can watch YouTube v
 - Creates social proof ("look at these amazing communities")
 
 ### 3. Social Presence System
+
 **Why:** Current site feels solitary. Showing presence creates FOMO (in a good way).
 
 **Implementation:**
@@ -140,6 +152,7 @@ Campfire is a lightweight, real-time hangout space where you can watch YouTube v
 - Network effects (invite friends to connect on Campfire)
 
 ### 4. Video Queue & Voting System
+
 **Why:** Passive watching is fine, but engagement keeps people in rooms.
 
 **Implementation:**
@@ -154,6 +167,7 @@ Campfire is a lightweight, real-time hangout space where you can watch YouTube v
 - Emergent culture inside rooms (inside jokes, preferences)
 
 ### 5. Partnership with Lofi Girl (or similar)
+
 **Why:** Lofi Girl is iconic for study music. Co-branding is instant credibility.
 
 **Implementation:**
@@ -172,6 +186,7 @@ Campfire is a lightweight, real-time hangout space where you can watch YouTube v
 ## SWOT Analysis
 
 ### Strengths
+
 - **Instant onboarding (no signup)** - Removes #1 barrier to trying
 - **Clear, unique positioning (presence over performance)** - Differentiates from co-watching/Zoom alternatives
 - **Privacy-first by design** - Appeals to privacy-conscious users
@@ -179,18 +194,21 @@ Campfire is a lightweight, real-time hangout space where you can watch YouTube v
 - **Founder is product designer** - Strong product instincts, design-first approach
 
 ### Weaknesses
+
 - **No visible content curation currently** - New users might feel lost
 - **Limited social features** - Hard to discover rooms/friends
 - **Unclear business model** - Sustainability risk
 - **Minimal current UX (V1)** - Depends on V2 delivery
 
 ### Opportunities
+
 - **Remote work trend** - Position as "digital third place" for remote workers
 - **Co-learning demand** - Curator-driven learning parties, education partnerships
 - **Creator economy** - Creator-hosted rooms, watch parties, community building
 - **Niche communities** - Designers, developers, students, artists have natural use cases
 
 ### Threats
+
 - **YouTube creates co-watching feature** - Focus on presence > sync tech
 - **Big tech enters space (Meta, Apple)** - Lean into privacy-first, indie appeal
 - **YouTube API changes/breakage** - Diversify video sources
@@ -223,6 +241,7 @@ Good luck, Marciano. 🔥
 ---
 
 **Report prepared by:** Campfire Research Subagent
+
 **Date:** February 13, 2026`;
 
 export default function ResearchPage() {
